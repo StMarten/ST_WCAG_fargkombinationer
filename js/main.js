@@ -196,7 +196,7 @@ fetch(`${basePath ? basePath + '/' : ''}data/fargkombinationer_WCAG.json`)
             <div class="error-message">
                 <h3>Kunde inte ladda färgdata</h3>
                 <p>${error.message}</p>
-                <p>Kontrollera att filen fargkombinationer.json finns i rätt mapp.</p>
+                <p>Kontrollera att filen data/fargkombinationer_WCAG.json finns i rätt mapp.</p>
             </div>
         `;
     });

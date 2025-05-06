@@ -1,4 +1,4 @@
-const CACHE_NAME = 'fargkombinationer-v4';
+const CACHE_NAME = 'fargkombinationer-v5';
 const urlsToCache = [
   '/ST_WCAG_fargkombinationer/',
   '/ST_WCAG_fargkombinationer/index.html',
@@ -7,7 +7,12 @@ const urlsToCache = [
   '/ST_WCAG_fargkombinationer/data/fargkombinationer_WCAG.json',
   '/ST_WCAG_fargkombinationer/manifest.json',
   '/ST_WCAG_fargkombinationer/favicon.ico'
-].map(url => url.replace('/ST_WCAG_fargkombinationer', ''));
+];
+
+// Funktion för att hämta bas-sökväg
+function getBasePath() {
+  return new URL(self.registration.scope).pathname;
+}
 
 // Installera service worker och cacha resurser
 self.addEventListener('install', event => {
@@ -24,8 +29,17 @@ self.addEventListener('install', event => {
 
 // Hantera begäranden med cache-first strategi
 self.addEventListener('fetch', event => {
+  // Hämta bas-sökväg
+  const basePath = getBasePath();
+  
+  // Skapa en ny URL med rätt bas-sökväg
+  const url = new URL(event.request.url);
+  const requestUrl = url.pathname.startsWith(basePath) 
+    ? new Request(event.request.url.replace(url.origin + basePath, url.origin))
+    : event.request;
+
   event.respondWith(
-    caches.match(event.request)
+    caches.match(requestUrl)
       .then(response => {
         // Cache hit - returnera svaret
         if (response) {

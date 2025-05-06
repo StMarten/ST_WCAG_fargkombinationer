@@ -2,7 +2,7 @@
   "name": "Färgkombinationer",
   "short_name": "Färger",
   "description": "En app för att visa WCAG-godkända färgkombinationer",
-  "start_url": "/ST_WCAG_fargkombinationer/index.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#4CAF50",
