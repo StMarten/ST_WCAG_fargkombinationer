@@ -1,8 +1,8 @@
 {
   "name": "Färgkombinationer",
   "short_name": "Färger",
-  "description": "En app för att hålla koll på färgkombinationer",
-  "start_url": "/index.html",
+  "description": "En app för att visa WCAG-godkända färgkombinationer",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#4CAF50",

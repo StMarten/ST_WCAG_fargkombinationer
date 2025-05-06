@@ -13,8 +13,8 @@
     <script>
         // Registrera service worker
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('sw.js')
                     .then(registration => {
                         console.log('ServiceWorker registrerad med scope: ', registration.scope);
                     })
@@ -26,8 +26,8 @@
 
         // Testa JSON-inläsning
         console.log('Testar JSON-inläsning...');
-        // Använd absolut sökväg för GitHub Pages
-        fetch('/ST_WCAG_fargkombinationer/data/fargkombinationer_WCAG.json')
+        // Använd relativ sökväg
+        fetch('data/fargkombinationer_WCAG.json')
             .then(response => {
                 console.log('Svar mottaget, status:', response.status);
                 if (!response.ok) {

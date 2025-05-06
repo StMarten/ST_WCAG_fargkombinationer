@@ -164,8 +164,8 @@ function filterCombinations(selectedColor) {
 
 // Läs in data från JSON-fil
 console.log('Försöker hämta färgdata...');
-// Använd absolut sökväg för GitHub Pages
-fetch('/ST_WCAG_fargkombinationer/data/fargkombinationer_WCAG.json')
+// Använd relativ sökväg
+fetch('../data/fargkombinationer_WCAG.json')
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);

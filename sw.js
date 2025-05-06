@@ -1,12 +1,12 @@
-const CACHE_NAME = 'fargkombinationer-v2';
+const CACHE_NAME = 'fargkombinationer-v3';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/css/styles.css',
-  '/js/main.js',
-  '/data/fargkombinationer_WCAG.json',
-  '/manifest.json',
-  '/favicon.ico'
+  '/ST_WCAG_fargkombinationer/',
+  '/ST_WCAG_fargkombinationer/index.html',
+  '/ST_WCAG_fargkombinationer/css/styles.css',
+  '/ST_WCAG_fargkombinationer/js/main.js',
+  '/ST_WCAG_fargkombinationer/data/fargkombinationer_WCAG.json',
+  '/ST_WCAG_fargkombinationer/manifest.json',
+  '/ST_WCAG_fargkombinationer/favicon.ico'
 ];
 
 // Installera service worker och cacha resurser
