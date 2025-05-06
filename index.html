@@ -27,9 +27,11 @@
 
         // Testa JSON-inläsning
         console.log('Testar JSON-inläsning...');
-        // Använd samma sökväg som i main.js
-        const basePath = window.basePath || window.location.pathname.split('/').slice(0, -1).join('/');
-        fetch(`${basePath ? basePath + '/' : ''}data/fargkombinationer_WCAG.json`)
+        // Använd en funktion för att hämta bas-sökväg
+        function getBasePath() {
+            return window.location.pathname.split('/').slice(0, -1).join('/');
+        }
+        fetch(`${getBasePath()}/data/fargkombinationer_WCAG.json`)
             .then(response => {
                 console.log('Svar mottaget, status:', response.status);
                 if (!response.ok) {

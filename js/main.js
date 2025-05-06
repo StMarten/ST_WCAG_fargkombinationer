@@ -1,4 +1,5 @@
-let allCombinations = []; // Spara alla kombinationer globalt
+(function() {
+    let allCombinations = []; // Privat variabel i IIFE
 
 // Hämta alla unika färger från kombinationerna
 function getUniqueColors(combinations) {
@@ -162,14 +163,14 @@ function filterCombinations(selectedColor) {
     });
 }
 
+// Funktion för att hämta bas-sökväg
+function getBasePath() {
+    return window.location.pathname.split('/').slice(0, -1).join('/');
+}
+
 // Läs in data från JSON-fil
 console.log('Försöker hämta färgdata...');
-// Använd en mer robust sökväg
-if (!window.basePath) {
-    window.basePath = window.location.pathname.split('/').slice(0, -1).join('/');
-}
-const basePath = window.basePath;
-fetch(`${basePath ? basePath + '/' : ''}data/fargkombinationer_WCAG.json`)
+fetch(`${getBasePath()}/data/fargkombinationer_WCAG.json`)
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -203,3 +204,4 @@ fetch(`${basePath ? basePath + '/' : ''}data/fargkombinationer_WCAG.json`)
             </div>
         `;
     });
+})();
