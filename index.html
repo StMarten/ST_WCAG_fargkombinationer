@@ -6,6 +6,7 @@
     <meta name="theme-color" content="#4CAF50">
     <meta name="description" content="En app för att hålla koll på färgkombinationer">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="manifest" href="./manifest.json">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
@@ -26,8 +27,8 @@
 
         // Testa JSON-inläsning
         console.log('Testar JSON-inläsning...');
-        // Använd samma robusta sökväg
-        const basePath = window.location.pathname.split('/').slice(0, -1).join('/');
+        // Använd samma sökväg som i main.js
+        const basePath = window.basePath || window.location.pathname.split('/').slice(0, -1).join('/');
         fetch(`${basePath ? basePath + '/' : ''}data/fargkombinationer_WCAG.json`)
             .then(response => {
                 console.log('Svar mottaget, status:', response.status);

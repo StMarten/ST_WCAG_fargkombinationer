@@ -165,7 +165,10 @@ function filterCombinations(selectedColor) {
 // Läs in data från JSON-fil
 console.log('Försöker hämta färgdata...');
 // Använd en mer robust sökväg
-const basePath = window.location.pathname.split('/').slice(0, -1).join('/');
+if (!window.basePath) {
+    window.basePath = window.location.pathname.split('/').slice(0, -1).join('/');
+}
+const basePath = window.basePath;
 fetch(`${basePath ? basePath + '/' : ''}data/fargkombinationer_WCAG.json`)
     .then(response => {
         if (!response.ok) {
