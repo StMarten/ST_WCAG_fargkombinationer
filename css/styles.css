@@ -1,0 +1,222 @@
+body {
+    font-family: 'Bosis', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #cccccc;
+}
+
+.filter-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.filter-container label {
+    font-family: 'Roboto Slab', Georgia, serif;
+    font-size: 2em;
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.filter-container select {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-family: 'Roboto Slab', Georgia, serif;
+    font-weight: 700;
+    color: #333;
+    background-color: white;
+    border: none;
+    border-radius: 0;
+    margin-left: 10px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px auto;
+    padding-right: 30px;
+}
+
+/* Lägg till dina stilar här */
+
+.error-message {
+    background-color: #ffebee;
+    border-left: 4px solid #f44336;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.error-message h3 {
+    color: #d32f2f;
+    margin-top: 0;
+}
+
+.error-message p {
+    margin: 10px 0;
+    color: #333;
+}
+
+/* Styla options */
+.filter-container select option {
+    padding: 10px;
+    font-family: 'Roboto Slab', Georgia, serif;
+    font-weight: 400;
+}
+
+/* Styla scrollbar för webkit-webbläsare */
+.filter-container select::-webkit-scrollbar {
+    width: 8px;
+}
+
+.filter-container select::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.filter-container select::-webkit-scrollbar-thumb {
+    background: #bdbdbd;
+    border-radius: 4px;
+}
+
+.filter-container select::-webkit-scrollbar-thumb:hover {
+    background: #9e9e9e;
+}
+
+.filter-container .text-box {
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 4px;
+    color: #333;
+    font-family: 'Roboto Slab', Georgia, serif;
+    font-weight: 900;
+}
+
+.container {
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.segment {
+    margin-bottom: 20px;
+}
+
+.segment h2 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.segment .cards-container {
+    display: grid;
+    gap: 0;
+    padding: 0;
+}
+
+/* Desktop (minst 1200px) */
+@media (min-width: 1200px) {
+    .segment .cards-container {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+/* Stor skärm (över 1200px) */
+@media (min-width: 1200px) {
+    .segment .cards-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Tablet (900-1199px) */
+@media (min-width: 900px) and (max-width: 1199px) {
+    .segment .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobil (under 900px) */
+@media (max-width: 899px) {
+    .segment .cards-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.card {
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    background-color: #fff;
+    min-width: 300px;
+    max-width: 400px;
+    margin: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    min-height: 240px; /* Extra utrymme för texten */
+}
+
+.background {
+    height: 200px;
+    margin: 0;
+    border-radius: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    font-weight: 700;
+    font-size: 1.5em;
+    padding: 0 30px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Textfärgens namn och brödtext */
+.background .color-text {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 20px; /* 60px från botten av kortet */
+    left: 20px; /* Samma som horisontell padding */
+}
+
+.background .color-name {
+    font-family: 'Roboto Slab', Georgia, serif;
+    font-weight: 900;
+    font-size: 1.1em;
+    margin: 0 0 5px 0;
+    white-space: nowrap;
+}
+
+.background .description {
+    font-size: 0.7em;
+    opacity: 0.9;
+    white-space: nowrap;
+}
+
+.text-box {
+    height: 50px;
+    min-width: 150px;
+    padding: 0 10px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto Slab', Georgia, serif;
+    font-weight: 900;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.info {
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+}

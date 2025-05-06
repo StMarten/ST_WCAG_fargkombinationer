@@ -1,0 +1,1460 @@
+{
+  "kombinationer": [
+    {
+      "color1": "Sol",
+      "color1Farg": [
+        254,
+        201,
+        0
+      ],
+      "color2": "Björk",
+      "color2Farg": [
+        62,
+        168,
+        39
+      ],
+      "kontrast": 1.99,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Sol",
+      "color1Farg": [
+        254,
+        201,
+        0
+      ],
+      "color2": "Nypon",
+      "color2Farg": [
+        255,
+        80,
+        0
+      ],
+      "kontrast": 2.12,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Sol",
+      "color1Farg": [
+        254,
+        201,
+        0
+      ],
+      "color2": "Vatten",
+      "color2Farg": [
+        0,
+        154,
+        163
+      ],
+      "kontrast": 2.21,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Sol",
+      "color1Farg": [
+        254,
+        201,
+        0
+      ],
+      "color2": "Krokus",
+      "color2Farg": [
+        185,
+        176,
+        245
+      ],
+      "kontrast": 1.28,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Sol",
+      "color1Farg": [
+        254,
+        201,
+        0
+      ],
+      "color2": "Pion",
+      "color2Farg": [
+        252,
+        153,
+        209
+      ],
+      "kontrast": 1.28,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Sol",
+      "color1Farg": [
+        254,
+        201,
+        0
+      ],
+      "color2": "Plommon",
+      "color2Farg": [
+        97,
+        0,
+        130
+      ],
+      "kontrast": 7.41,
+      "wcagNiva": "AAA"
+    },
+    {
+      "color1": "Sol",
+      "color1Farg": [
+        254,
+        201,
+        0
+      ],
+      "color2": "Blåbär",
+      "color2Farg": [
+        35,
+        17,
+        97
+      ],
+      "kontrast": 10.25,
+      "wcagNiva": "AAA"
+    },
+    {
+      "color1": "Sol",
+      "color1Farg": [
+        254,
+        201,
+        0
+      ],
+      "color2": "Tall",
+      "color2Farg": [
+        20,
+        71,
+        51
+      ],
+      "kontrast": 6.86,
+      "wcagNiva": "AA"
+    },
+    {
+      "color1": "Sol",
+      "color1Farg": [
+        254,
+        201,
+        0
+      ],
+      "color2": "Hav",
+      "color2Farg": [
+        30,
+        89,
+        166
+      ],
+      "kontrast": 4.47,
+      "wcagNiva": "A"
+    },
+    {
+      "color1": "Sol",
+      "color1Farg": [
+        254,
+        201,
+        0
+      ],
+      "color2": "Himmel",
+      "color2Farg": [
+        0,
+        148,
+        220
+      ],
+      "kontrast": 2.16,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Sol",
+      "color1Farg": [
+        254,
+        201,
+        0
+      ],
+      "color2": "Syren",
+      "color2Farg": [
+        113,
+        108,
+        184
+      ],
+      "kontrast": 2.99,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Sol",
+      "color1Farg": [
+        254,
+        201,
+        0
+      ],
+      "color2": "Bigarrå",
+      "color2Farg": [
+        109,
+        32,
+        43
+      ],
+      "kontrast": 7.17,
+      "wcagNiva": "AAA"
+    },
+    {
+      "color1": "Sol",
+      "color1Farg": [
+        254,
+        201,
+        0
+      ],
+      "color2": "Vallmo",
+      "color2Farg": [
+        220,
+        0,
+        27
+      ],
+      "kontrast": 3.34,
+      "wcagNiva": "A"
+    },
+    {
+      "color1": "Björk",
+      "color1Farg": [
+        62,
+        168,
+        39
+      ],
+      "color2": "Nypon",
+      "color2Farg": [
+        255,
+        80,
+        0
+      ],
+      "kontrast": 1.07,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Björk",
+      "color1Farg": [
+        62,
+        168,
+        39
+      ],
+      "color2": "Vatten",
+      "color2Farg": [
+        0,
+        154,
+        163
+      ],
+      "kontrast": 1.11,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Björk",
+      "color1Farg": [
+        62,
+        168,
+        39
+      ],
+      "color2": "Krokus",
+      "color2Farg": [
+        185,
+        176,
+        245
+      ],
+      "kontrast": 1.55,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Björk",
+      "color1Farg": [
+        62,
+        168,
+        39
+      ],
+      "color2": "Pion",
+      "color2Farg": [
+        252,
+        153,
+        209
+      ],
+      "kontrast": 1.55,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Björk",
+      "color1Farg": [
+        62,
+        168,
+        39
+      ],
+      "color2": "Plommon",
+      "color2Farg": [
+        97,
+        0,
+        130
+      ],
+      "kontrast": 3.73,
+      "wcagNiva": "A"
+    },
+    {
+      "color1": "Björk",
+      "color1Farg": [
+        62,
+        168,
+        39
+      ],
+      "color2": "Blåbär",
+      "color2Farg": [
+        35,
+        17,
+        97
+      ],
+      "kontrast": 5.16,
+      "wcagNiva": "AA"
+    },
+    {
+      "color1": "Björk",
+      "color1Farg": [
+        62,
+        168,
+        39
+      ],
+      "color2": "Tall",
+      "color2Farg": [
+        20,
+        71,
+        51
+      ],
+      "kontrast": 3.45,
+      "wcagNiva": "A"
+    },
+    {
+      "color1": "Björk",
+      "color1Farg": [
+        62,
+        168,
+        39
+      ],
+      "color2": "Hav",
+      "color2Farg": [
+        30,
+        89,
+        166
+      ],
+      "kontrast": 2.25,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Björk",
+      "color1Farg": [
+        62,
+        168,
+        39
+      ],
+      "color2": "Himmel",
+      "color2Farg": [
+        0,
+        148,
+        220
+      ],
+      "kontrast": 1.09,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Björk",
+      "color1Farg": [
+        62,
+        168,
+        39
+      ],
+      "color2": "Syren",
+      "color2Farg": [
+        113,
+        108,
+        184
+      ],
+      "kontrast": 1.51,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Björk",
+      "color1Farg": [
+        62,
+        168,
+        39
+      ],
+      "color2": "Bigarrå",
+      "color2Farg": [
+        109,
+        32,
+        43
+      ],
+      "kontrast": 3.61,
+      "wcagNiva": "A"
+    },
+    {
+      "color1": "Björk",
+      "color1Farg": [
+        62,
+        168,
+        39
+      ],
+      "color2": "Vallmo",
+      "color2Farg": [
+        220,
+        0,
+        27
+      ],
+      "kontrast": 1.68,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Nypon",
+      "color1Farg": [
+        255,
+        80,
+        0
+      ],
+      "color2": "Vatten",
+      "color2Farg": [
+        0,
+        154,
+        163
+      ],
+      "kontrast": 1.04,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Nypon",
+      "color1Farg": [
+        255,
+        80,
+        0
+      ],
+      "color2": "Krokus",
+      "color2Farg": [
+        185,
+        176,
+        245
+      ],
+      "kontrast": 1.66,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Nypon",
+      "color1Farg": [
+        255,
+        80,
+        0
+      ],
+      "color2": "Pion",
+      "color2Farg": [
+        252,
+        153,
+        209
+      ],
+      "kontrast": 1.66,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Nypon",
+      "color1Farg": [
+        255,
+        80,
+        0
+      ],
+      "color2": "Plommon",
+      "color2Farg": [
+        97,
+        0,
+        130
+      ],
+      "kontrast": 3.5,
+      "wcagNiva": "A"
+    },
+    {
+      "color1": "Nypon",
+      "color1Farg": [
+        255,
+        80,
+        0
+      ],
+      "color2": "Blåbär",
+      "color2Farg": [
+        35,
+        17,
+        97
+      ],
+      "kontrast": 4.83,
+      "wcagNiva": "AA"
+    },
+    {
+      "color1": "Nypon",
+      "color1Farg": [
+        255,
+        80,
+        0
+      ],
+      "color2": "Tall",
+      "color2Farg": [
+        20,
+        71,
+        51
+      ],
+      "kontrast": 3.23,
+      "wcagNiva": "A"
+    },
+    {
+      "color1": "Nypon",
+      "color1Farg": [
+        255,
+        80,
+        0
+      ],
+      "color2": "Hav",
+      "color2Farg": [
+        30,
+        89,
+        166
+      ],
+      "kontrast": 2.11,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Nypon",
+      "color1Farg": [
+        255,
+        80,
+        0
+      ],
+      "color2": "Himmel",
+      "color2Farg": [
+        0,
+        148,
+        220
+      ],
+      "kontrast": 1.02,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Nypon",
+      "color1Farg": [
+        255,
+        80,
+        0
+      ],
+      "color2": "Syren",
+      "color2Farg": [
+        113,
+        108,
+        184
+      ],
+      "kontrast": 1.41,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Nypon",
+      "color1Farg": [
+        255,
+        80,
+        0
+      ],
+      "color2": "Bigarrå",
+      "color2Farg": [
+        109,
+        32,
+        43
+      ],
+      "kontrast": 3.38,
+      "wcagNiva": "A"
+    },
+    {
+      "color1": "Nypon",
+      "color1Farg": [
+        255,
+        80,
+        0
+      ],
+      "color2": "Vallmo",
+      "color2Farg": [
+        220,
+        0,
+        27
+      ],
+      "kontrast": 1.58,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Vatten",
+      "color1Farg": [
+        0,
+        154,
+        163
+      ],
+      "color2": "Krokus",
+      "color2Farg": [
+        185,
+        176,
+        245
+      ],
+      "kontrast": 1.72,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Vatten",
+      "color1Farg": [
+        0,
+        154,
+        163
+      ],
+      "color2": "Pion",
+      "color2Farg": [
+        252,
+        153,
+        209
+      ],
+      "kontrast": 1.73,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Vatten",
+      "color1Farg": [
+        0,
+        154,
+        163
+      ],
+      "color2": "Plommon",
+      "color2Farg": [
+        97,
+        0,
+        130
+      ],
+      "kontrast": 3.36,
+      "wcagNiva": "A"
+    },
+    {
+      "color1": "Vatten",
+      "color1Farg": [
+        0,
+        154,
+        163
+      ],
+      "color2": "Blåbär",
+      "color2Farg": [
+        35,
+        17,
+        97
+      ],
+      "kontrast": 4.64,
+      "wcagNiva": "AA"
+    },
+    {
+      "color1": "Vatten",
+      "color1Farg": [
+        0,
+        154,
+        163
+      ],
+      "color2": "Tall",
+      "color2Farg": [
+        20,
+        71,
+        51
+      ],
+      "kontrast": 3.11,
+      "wcagNiva": "A"
+    },
+    {
+      "color1": "Vatten",
+      "color1Farg": [
+        0,
+        154,
+        163
+      ],
+      "color2": "Hav",
+      "color2Farg": [
+        30,
+        89,
+        166
+      ],
+      "kontrast": 2.03,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Vatten",
+      "color1Farg": [
+        0,
+        154,
+        163
+      ],
+      "color2": "Himmel",
+      "color2Farg": [
+        0,
+        148,
+        220
+      ],
+      "kontrast": 1.02,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Vatten",
+      "color1Farg": [
+        0,
+        154,
+        163
+      ],
+      "color2": "Syren",
+      "color2Farg": [
+        113,
+        108,
+        184
+      ],
+      "kontrast": 1.36,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Vatten",
+      "color1Farg": [
+        0,
+        154,
+        163
+      ],
+      "color2": "Bigarrå",
+      "color2Farg": [
+        109,
+        32,
+        43
+      ],
+      "kontrast": 3.25,
+      "wcagNiva": "A"
+    },
+    {
+      "color1": "Vatten",
+      "color1Farg": [
+        0,
+        154,
+        163
+      ],
+      "color2": "Vallmo",
+      "color2Farg": [
+        220,
+        0,
+        27
+      ],
+      "kontrast": 1.52,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Krokus",
+      "color1Farg": [
+        185,
+        176,
+        245
+      ],
+      "color2": "Pion",
+      "color2Farg": [
+        252,
+        153,
+        209
+      ],
+      "kontrast": 1.0,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Krokus",
+      "color1Farg": [
+        185,
+        176,
+        245
+      ],
+      "color2": "Plommon",
+      "color2Farg": [
+        97,
+        0,
+        130
+      ],
+      "kontrast": 5.79,
+      "wcagNiva": "AA"
+    },
+    {
+      "color1": "Krokus",
+      "color1Farg": [
+        185,
+        176,
+        245
+      ],
+      "color2": "Blåbär",
+      "color2Farg": [
+        35,
+        17,
+        97
+      ],
+      "kontrast": 8.0,
+      "wcagNiva": "AAA"
+    },
+    {
+      "color1": "Krokus",
+      "color1Farg": [
+        185,
+        176,
+        245
+      ],
+      "color2": "Tall",
+      "color2Farg": [
+        20,
+        71,
+        51
+      ],
+      "kontrast": 5.35,
+      "wcagNiva": "AA"
+    },
+    {
+      "color1": "Krokus",
+      "color1Farg": [
+        185,
+        176,
+        245
+      ],
+      "color2": "Hav",
+      "color2Farg": [
+        30,
+        89,
+        166
+      ],
+      "kontrast": 3.49,
+      "wcagNiva": "A"
+    },
+    {
+      "color1": "Krokus",
+      "color1Farg": [
+        185,
+        176,
+        245
+      ],
+      "color2": "Himmel",
+      "color2Farg": [
+        0,
+        148,
+        220
+      ],
+      "kontrast": 1.69,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Krokus",
+      "color1Farg": [
+        185,
+        176,
+        245
+      ],
+      "color2": "Syren",
+      "color2Farg": [
+        113,
+        108,
+        184
+      ],
+      "kontrast": 2.33,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Krokus",
+      "color1Farg": [
+        185,
+        176,
+        245
+      ],
+      "color2": "Bigarrå",
+      "color2Farg": [
+        109,
+        32,
+        43
+      ],
+      "kontrast": 5.6,
+      "wcagNiva": "AA"
+    },
+    {
+      "color1": "Krokus",
+      "color1Farg": [
+        185,
+        176,
+        245
+      ],
+      "color2": "Vallmo",
+      "color2Farg": [
+        220,
+        0,
+        27
+      ],
+      "kontrast": 2.61,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Pion",
+      "color1Farg": [
+        252,
+        153,
+        209
+      ],
+      "color2": "Plommon",
+      "color2Farg": [
+        97,
+        0,
+        130
+      ],
+      "kontrast": 5.8,
+      "wcagNiva": "AA"
+    },
+    {
+      "color1": "Pion",
+      "color1Farg": [
+        252,
+        153,
+        209
+      ],
+      "color2": "Blåbär",
+      "color2Farg": [
+        35,
+        17,
+        97
+      ],
+      "kontrast": 8.02,
+      "wcagNiva": "AAA"
+    },
+    {
+      "color1": "Pion",
+      "color1Farg": [
+        252,
+        153,
+        209
+      ],
+      "color2": "Tall",
+      "color2Farg": [
+        20,
+        71,
+        51
+      ],
+      "kontrast": 5.36,
+      "wcagNiva": "AA"
+    },
+    {
+      "color1": "Pion",
+      "color1Farg": [
+        252,
+        153,
+        209
+      ],
+      "color2": "Hav",
+      "color2Farg": [
+        30,
+        89,
+        166
+      ],
+      "kontrast": 3.5,
+      "wcagNiva": "A"
+    },
+    {
+      "color1": "Pion",
+      "color1Farg": [
+        252,
+        153,
+        209
+      ],
+      "color2": "Himmel",
+      "color2Farg": [
+        0,
+        148,
+        220
+      ],
+      "kontrast": 1.69,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Pion",
+      "color1Farg": [
+        252,
+        153,
+        209
+      ],
+      "color2": "Syren",
+      "color2Farg": [
+        113,
+        108,
+        184
+      ],
+      "kontrast": 2.34,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Pion",
+      "color1Farg": [
+        252,
+        153,
+        209
+      ],
+      "color2": "Bigarrå",
+      "color2Farg": [
+        109,
+        32,
+        43
+      ],
+      "kontrast": 5.61,
+      "wcagNiva": "AA"
+    },
+    {
+      "color1": "Pion",
+      "color1Farg": [
+        252,
+        153,
+        209
+      ],
+      "color2": "Vallmo",
+      "color2Farg": [
+        220,
+        0,
+        27
+      ],
+      "kontrast": 2.62,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Plommon",
+      "color1Farg": [
+        97,
+        0,
+        130
+      ],
+      "color2": "Blåbär",
+      "color2Farg": [
+        35,
+        17,
+        97
+      ],
+      "kontrast": 1.38,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Plommon",
+      "color1Farg": [
+        97,
+        0,
+        130
+      ],
+      "color2": "Tall",
+      "color2Farg": [
+        20,
+        71,
+        51
+      ],
+      "kontrast": 1.08,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Plommon",
+      "color1Farg": [
+        97,
+        0,
+        130
+      ],
+      "color2": "Hav",
+      "color2Farg": [
+        30,
+        89,
+        166
+      ],
+      "kontrast": 1.66,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Plommon",
+      "color1Farg": [
+        97,
+        0,
+        130
+      ],
+      "color2": "Himmel",
+      "color2Farg": [
+        0,
+        148,
+        220
+      ],
+      "kontrast": 3.42,
+      "wcagNiva": "A"
+    },
+    {
+      "color1": "Plommon",
+      "color1Farg": [
+        97,
+        0,
+        130
+      ],
+      "color2": "Syren",
+      "color2Farg": [
+        113,
+        108,
+        184
+      ],
+      "kontrast": 2.48,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Plommon",
+      "color1Farg": [
+        97,
+        0,
+        130
+      ],
+      "color2": "Bigarrå",
+      "color2Farg": [
+        109,
+        32,
+        43
+      ],
+      "kontrast": 1.03,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Plommon",
+      "color1Farg": [
+        97,
+        0,
+        130
+      ],
+      "color2": "Vallmo",
+      "color2Farg": [
+        220,
+        0,
+        27
+      ],
+      "kontrast": 2.22,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Blåbär",
+      "color1Farg": [
+        35,
+        17,
+        97
+      ],
+      "color2": "Tall",
+      "color2Farg": [
+        20,
+        71,
+        51
+      ],
+      "kontrast": 1.49,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Blåbär",
+      "color1Farg": [
+        35,
+        17,
+        97
+      ],
+      "color2": "Hav",
+      "color2Farg": [
+        30,
+        89,
+        166
+      ],
+      "kontrast": 2.29,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Blåbär",
+      "color1Farg": [
+        35,
+        17,
+        97
+      ],
+      "color2": "Himmel",
+      "color2Farg": [
+        0,
+        148,
+        220
+      ],
+      "kontrast": 4.73,
+      "wcagNiva": "AA"
+    },
+    {
+      "color1": "Blåbär",
+      "color1Farg": [
+        35,
+        17,
+        97
+      ],
+      "color2": "Syren",
+      "color2Farg": [
+        113,
+        108,
+        184
+      ],
+      "kontrast": 3.43,
+      "wcagNiva": "A"
+    },
+    {
+      "color1": "Blåbär",
+      "color1Farg": [
+        35,
+        17,
+        97
+      ],
+      "color2": "Bigarrå",
+      "color2Farg": [
+        109,
+        32,
+        43
+      ],
+      "kontrast": 1.43,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Blåbär",
+      "color1Farg": [
+        35,
+        17,
+        97
+      ],
+      "color2": "Vallmo",
+      "color2Farg": [
+        220,
+        0,
+        27
+      ],
+      "kontrast": 3.07,
+      "wcagNiva": "A"
+    },
+    {
+      "color1": "Tall",
+      "color1Farg": [
+        20,
+        71,
+        51
+      ],
+      "color2": "Hav",
+      "color2Farg": [
+        30,
+        89,
+        166
+      ],
+      "kontrast": 1.53,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Tall",
+      "color1Farg": [
+        20,
+        71,
+        51
+      ],
+      "color2": "Himmel",
+      "color2Farg": [
+        0,
+        148,
+        220
+      ],
+      "kontrast": 3.17,
+      "wcagNiva": "A"
+    },
+    {
+      "color1": "Tall",
+      "color1Farg": [
+        20,
+        71,
+        51
+      ],
+      "color2": "Syren",
+      "color2Farg": [
+        113,
+        108,
+        184
+      ],
+      "kontrast": 2.29,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Tall",
+      "color1Farg": [
+        20,
+        71,
+        51
+      ],
+      "color2": "Bigarrå",
+      "color2Farg": [
+        109,
+        32,
+        43
+      ],
+      "kontrast": 1.05,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Tall",
+      "color1Farg": [
+        20,
+        71,
+        51
+      ],
+      "color2": "Vallmo",
+      "color2Farg": [
+        220,
+        0,
+        27
+      ],
+      "kontrast": 2.05,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Hav",
+      "color1Farg": [
+        30,
+        89,
+        166
+      ],
+      "color2": "Himmel",
+      "color2Farg": [
+        0,
+        148,
+        220
+      ],
+      "kontrast": 2.07,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Hav",
+      "color1Farg": [
+        30,
+        89,
+        166
+      ],
+      "color2": "Syren",
+      "color2Farg": [
+        113,
+        108,
+        184
+      ],
+      "kontrast": 1.5,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Hav",
+      "color1Farg": [
+        30,
+        89,
+        166
+      ],
+      "color2": "Bigarrå",
+      "color2Farg": [
+        109,
+        32,
+        43
+      ],
+      "kontrast": 1.6,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Hav",
+      "color1Farg": [
+        30,
+        89,
+        166
+      ],
+      "color2": "Vallmo",
+      "color2Farg": [
+        220,
+        0,
+        27
+      ],
+      "kontrast": 1.34,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Himmel",
+      "color1Farg": [
+        0,
+        148,
+        220
+      ],
+      "color2": "Syren",
+      "color2Farg": [
+        113,
+        108,
+        184
+      ],
+      "kontrast": 1.38,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Himmel",
+      "color1Farg": [
+        0,
+        148,
+        220
+      ],
+      "color2": "Bigarrå",
+      "color2Farg": [
+        109,
+        32,
+        43
+      ],
+      "kontrast": 3.31,
+      "wcagNiva": "A"
+    },
+    {
+      "color1": "Himmel",
+      "color1Farg": [
+        0,
+        148,
+        220
+      ],
+      "color2": "Vallmo",
+      "color2Farg": [
+        220,
+        0,
+        27
+      ],
+      "kontrast": 1.54,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Syren",
+      "color1Farg": [
+        113,
+        108,
+        184
+      ],
+      "color2": "Bigarrå",
+      "color2Farg": [
+        109,
+        32,
+        43
+      ],
+      "kontrast": 2.4,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Syren",
+      "color1Farg": [
+        113,
+        108,
+        184
+      ],
+      "color2": "Vallmo",
+      "color2Farg": [
+        220,
+        0,
+        27
+      ],
+      "kontrast": 1.12,
+      "wcagNiva": "Ingen"
+    },
+    {
+      "color1": "Bigarrå",
+      "color1Farg": [
+        109,
+        32,
+        43
+      ],
+      "color2": "Vallmo",
+      "color2Farg": [
+        220,
+        0,
+        27
+      ],
+      "kontrast": 2.15,
+      "wcagNiva": "Ingen"
+    }
+  ]
+}
