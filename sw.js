@@ -1,4 +1,4 @@
-const CACHE_NAME = 'fargkombinationer-v3';
+const CACHE_NAME = 'fargkombinationer-v4';
 const urlsToCache = [
   '/ST_WCAG_fargkombinationer/',
   '/ST_WCAG_fargkombinationer/index.html',
@@ -7,7 +7,7 @@ const urlsToCache = [
   '/ST_WCAG_fargkombinationer/data/fargkombinationer_WCAG.json',
   '/ST_WCAG_fargkombinationer/manifest.json',
   '/ST_WCAG_fargkombinationer/favicon.ico'
-];
+].map(url => url.replace('/ST_WCAG_fargkombinationer', ''));
 
 // Installera service worker och cacha resurser
 self.addEventListener('install', event => {
