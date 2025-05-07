@@ -2,7 +2,7 @@
 <html lang="sv">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#4CAF50">
     <meta name="description" content="En app för att hålla koll på färgkombinationer">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -57,9 +57,9 @@
 </head>
 <body>
     <div class="filter-container">
-        <label for="colorFilter">Visa kombinationer med:</label>
-        <select id="colorFilter">
-            <option value="all">alla färger</option>
+        <label for="colorFilter">Visa färg:</label>
+        <select id="colorFilter" aria-label="Filtrera färger">
+            <option value="all">Alla färger</option>
         </select>
     </div>
     <div class="container" id="colorCombinations"></div>
