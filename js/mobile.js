@@ -30,6 +30,7 @@ class ColorApp {
             
             // Display all combinations initially
             this.displayCombinations('all');
+            this.updateFilterColor('all');
         } catch (error) {
             console.error('Error loading color data:', error);
             this.showError('Kunde inte ladda färgdata. Kontrollera din internetanslutning.');
@@ -180,8 +181,26 @@ class ColorApp {
     
     setupEventListeners() {
         this.filterSelect.addEventListener('change', (e) => {
-            this.displayCombinations(e.target.value);
+            const selectedColor = e.target.value;
+            this.displayCombinations(selectedColor);
+            this.updateFilterColor(selectedColor);
         });
+    }
+    
+    updateFilterColor(colorName) {
+        const filterContainer = document.querySelector('.filter-container');
+        if (colorName === 'all') {
+            filterContainer.style.backgroundColor = 'var(--primary-color)';
+        } else {
+            const colorCombination = this.allCombinations.find(comb => 
+                comb.color1 === colorName || comb.color2 === colorName);
+            if (colorCombination) {
+                const bgColor = colorCombination.color1 === colorName 
+                    ? `rgb(${colorCombination.color1Farg.join(',')})` 
+                    : `rgb(${colorCombination.color2Farg.join(',')})`;
+                filterContainer.style.backgroundColor = bgColor;
+            }
+        }
     }
 }
 
