@@ -85,6 +85,75 @@ body {
     box-shadow: 0 0 0 2px rgba(255,255,255,0.3);
 }
 
+/* Intro text styles */
+.intro-text {
+    padding: 12px 16px;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.intro-text p {
+    margin: 0 0 10px 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.intro-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* WCAG Segments */
+.wcag-segments {
+    display: flex;
+    background: white;
+    padding: 8px 12px;
+    border-bottom: 1px solid #e0e0e0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.wcag-segment {
+    flex: 1;
+    min-width: 60px;
+    padding: 8px 12px;
+    margin: 0 4px;
+    border: none;
+    border-radius: 20px;
+    background: #f5f5f5;
+    color: #555;
+    font-family: 'Bosis', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.wcag-segment.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.wcag-segment:first-child {
+    margin-left: 0;
+}
+
+.wcag-segment:last-child {
+    margin-right: 0;
+}
+
+.wcag-segment[data-level="AAA"] {
+    border-left: 4px solid #2e7d32;
+}
+
+.wcag-segment[data-level="AA"] {
+    border-left: 4px solid #ff8f00;
+}
+
+.wcag-segment[data-level="A"] {
+    border-left: 4px solid #c62828;
+}
+
 .color-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;

@@ -2,8 +2,11 @@
 class ColorApp {
     constructor() {
         this.allCombinations = [];
+        this.filteredCombinations = [];
         this.filterSelect = document.getElementById('colorFilter');
         this.colorGrid = document.getElementById('colorCombinations');
+        this.currentColorFilter = 'all';
+        this.currentWcagFilter = 'all';
         
         this.init();
     }
@@ -25,12 +28,13 @@ class ColorApp {
             const data = await response.json();
             this.allCombinations = data.kombinationer;
             
-            // Initialize color filter
+            // Initialize filters
             this.initializeColorFilter();
             
             // Display all combinations initially
-            this.displayCombinations('all');
+            this.filterCombinations();
             this.updateFilterColor('all');
+            this.updateWcagCounts();
         } catch (error) {
             console.error('Error loading color data:', error);
             this.showError('Kunde inte ladda färgdata. Kontrollera din internetanslutning.');
@@ -57,20 +61,46 @@ class ColorApp {
         });
     }
     
-    displayCombinations(filterColor) {
+    filterCombinations() {
+        this.filteredCombinations = this.allCombinations.filter(comb => {
+            // Apply color filter
+            const colorMatch = this.currentColorFilter === 'all' || 
+                             comb.color1 === this.currentColorFilter || 
+                             comb.color2 === this.currentColorFilter;
+            
+            // Apply WCAG level filter
+            const wcagMatch = this.currentWcagFilter === 'all' || 
+                            comb.wcagNiva === this.currentWcagFilter;
+            
+            return colorMatch && wcagMatch;
+        });
+        
+        this.renderCombinations();
+    }
+    
+    renderCombinations() {
         // Clear current grid
         this.colorGrid.innerHTML = '';
         
-        // Filter combinations
-        const filtered = filterColor === 'all' 
-            ? this.allCombinations 
-            : this.allCombinations.filter(comb => 
-                comb.color1 === filterColor || comb.color2 === filterColor);
-        
         // Create and append cards
-        filtered.forEach((comb, index) => {
+        this.filteredCombinations.forEach((comb, index) => {
             const card = this.createColorCard(comb, index);
             this.colorGrid.appendChild(card);
+        });
+    }
+    
+    updateWcagCounts() {
+        const counts = {
+            all: this.allCombinations.length,
+            AAA: this.allCombinations.filter(c => c.wcagNiva === 'AAA').length,
+            AA: this.allCombinations.filter(c => c.wcagNiva === 'AA').length,
+            A: this.allCombinations.filter(c => c.wcagNiva === 'A').length
+        };
+        
+        document.querySelectorAll('.wcag-segment').forEach(btn => {
+            const level = btn.dataset.level;
+            const count = counts[level] || 0;
+            btn.textContent = `${level} (${count})`;
         });
     }
     
@@ -180,10 +210,21 @@ class ColorApp {
     }
     
     setupEventListeners() {
+        // Color filter
         this.filterSelect.addEventListener('change', (e) => {
-            const selectedColor = e.target.value;
-            this.displayCombinations(selectedColor);
-            this.updateFilterColor(selectedColor);
+            this.currentColorFilter = e.target.value;
+            this.filterCombinations();
+            this.updateFilterColor(this.currentColorFilter);
+        });
+        
+        // WCAG level filter
+        document.querySelectorAll('.wcag-segment').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.wcag-segment').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                this.currentWcagFilter = btn.dataset.level;
+                this.filterCombinations();
+            });
         });
     }
     
