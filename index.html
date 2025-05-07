@@ -2,38 +2,12 @@
 <html lang="sv">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <script>
-        // Check if the device is a mobile device
-        function isMobileDevice() {
-            return (typeof window.orientation !== "undefined") || 
-                   (navigator.userAgent.indexOf('IEMobile') !== -1) ||
-                   (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
-        }
-
-        // Redirect to mobile version if on mobile device and not already on mobile.html
-        if (isMobileDevice() && !window.location.href.includes('mobile.html')) {
-            // Check if mobile.html exists
-            fetch('mobile.html', { method: 'HEAD' })
-                .then(response => {
-                    if (response.ok) {
-                        window.location.href = 'mobile.html';
-                    }
-                })
-                .catch(() => {
-                    // If mobile.html doesn't exist or there's an error, continue with desktop version
-                    console.log('Mobile version not found, using desktop version');
-                });
-        }
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#4CAF50">
-    <meta name="description" content="En app för att hålla koll på färgkombinationer">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Verktyg för att kontrollera WCAG-godkända färgkombinationer enligt Skånetrafikens varumärkesmanual">
     <link rel="manifest" href="./manifest.json">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <title>Färgkombinationer</title>
+    <title>Färgkombinationer - WCAG-kontroll</title>
     <script>
         // Registrera service worker
         if ('serviceWorker' in navigator) {
