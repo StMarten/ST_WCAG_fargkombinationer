@@ -95,6 +95,9 @@ class ColorApp {
         textBox.textContent = combination.color2;
         textBox.style.backgroundColor = `rgb(${combination.color2Farg.join(',')})`;
         textBox.style.color = `rgb(${combination.color1Farg.join(',')})`;
+        textBox.style.padding = '2px 6px';
+        textBox.style.borderRadius = '10px';
+        textBox.style.fontSize = '0.7rem';
         
         const info = document.createElement('div');
         info.className = 'color-info';

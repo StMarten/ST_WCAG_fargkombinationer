@@ -30,42 +30,43 @@ body {
 .app-header {
     background-color: var(--primary-color);
     color: white;
-    padding: 15px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .app-header h1 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 6px;
 }
 
 .filter-container {
     background-color: white;
-    padding: 10px;
+    padding: 8px;
     border-radius: var(--border-radius);
-    margin-top: 10px;
+    margin: 6px 0;
 }
 
 .filter-container label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     font-weight: 500;
+    font-size: 0.8rem;
 }
 
 .filter-container select {
     width: 100%;
-    padding: 8px;
+    padding: 6px 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 0.85rem;
     background-color: white;
 }
 
 .color-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    padding: 15px;
+    gap: 6px;
+    padding: 8px;
     flex: 1;
 }
 
@@ -73,8 +74,8 @@ body {
     background: white;
     border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     transition: transform 0.2s;
+    border: 1px solid #e0e0e0;
 }
 
 .color-card:active {
@@ -82,28 +83,30 @@ body {
 }
 
 .color-preview {
-    height: 100px;
+    height: 80px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 10px;
+    padding: 8px;
     color: white;
     position: relative;
 }
 
 .color-info {
-    padding: 10px;
-    font-size: 0.85rem;
+    padding: 6px 8px;
+    font-size: 0.7rem;
+    line-height: 1.2;
 }
 
 .color-name {
     font-weight: bold;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
+    font-size: 0.8rem;
 }
 
 .color-contrast {
     color: #666;
-    font-size: 0.8rem;
+    font-size: 0.65rem;
 }
 
 .app-footer {
@@ -117,7 +120,7 @@ body {
 
 /* Animation for loading */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(5px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
