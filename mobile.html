@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#4CAF50">
+    <meta name="description" content="Mobilversion - WCAG godkända färgkombinationer">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <title>Färgkombinationer - Mobil</title>
+    <link rel="stylesheet" href="./css/mobile.css">
+    <script>
+        // Register service worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registrerad med scope: ', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registrering misslyckades: ', error);
+                    });
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Färgkombinationer</h1>
+            <div class="filter-container">
+                <label for="colorFilter">Visa kombinationer med:</label>
+                <select id="colorFilter" aria-label="Filtrera färger">
+                    <option value="all">Alla färger</option>
+                </select>
+            </div>
+        </header>
+        
+        <main class="color-grid" id="colorCombinations">
+            <!-- Color cards will be inserted here by JavaScript -->
+        </main>
+        
+        <footer class="app-footer">
+            <p>WCAG godkända färgkombinationer</p>
+        </footer>
+    </div>
+    
+    <script src="./js/mobile.js"></script>
+</body>
+</html>
