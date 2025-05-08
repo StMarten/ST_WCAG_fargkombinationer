@@ -107,8 +107,8 @@ function filterCombinations(selectedColor) {
                 rgb: color2.split(',').map(Number)
             });
             
-            // Lägg till hover-effekt
-            card.addEventListener('mouseenter', function() {
+            // Lägg till hover/touch effekt
+            const handleColorSwap = function() {
                 const color1 = JSON.parse(this.dataset.color1);
                 const color2 = JSON.parse(this.dataset.color2);
 
@@ -122,9 +122,9 @@ function filterCombinations(selectedColor) {
                 // Ändra färg på color-text och första span i example-text
                 this.querySelector('.color-text').style.color = `rgb(${color1.rgb})`;
                 this.querySelector('.example-text span:first-child').style.color = `rgb(${color1.rgb})`;
-            });
+            };
 
-            card.addEventListener('mouseleave', function() {
+            const handleColorReset = function() {
                 const color1 = JSON.parse(this.dataset.color1);
                 const color2 = JSON.parse(this.dataset.color2);
 
@@ -138,7 +138,14 @@ function filterCombinations(selectedColor) {
                 // Återställ färg på color-text och första span i example-text
                 this.querySelector('.color-text').style.color = `rgb(${color2.rgb})`;
                 this.querySelector('.example-text span:first-child').style.color = `rgb(${color2.rgb})`;
-            });
+            };
+
+            // Lägg till event listeners för både dator och mobil
+            card.addEventListener('mouseenter', handleColorSwap);
+            card.addEventListener('mouseleave', handleColorReset);
+            card.addEventListener('touchstart', handleColorSwap);
+            card.addEventListener('touchend', handleColorReset);
+            card.addEventListener('touchcancel', handleColorReset);
 
             // Lägg till kort i rätt segment baserat på WCAG-nivå
             const level = wcagLevel === 'Ej godkänd' ? 'Ingen' : wcagLevel;
