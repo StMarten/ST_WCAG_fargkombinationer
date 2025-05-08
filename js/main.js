@@ -73,25 +73,27 @@ function filterCombinations(selectedColor) {
             const wcagLevel = combination.wcagNiva || 'Ingen';
             
             card.innerHTML = `
-                <div class="background" style="background-color: rgb(${color1})">
-                    <div class="color-text" style="color: rgb(${color2})">
-                        <div class="color-name">
-                            ${color1Name}
-                        </div>
-                        <div class="description">
-                            <div class="example-text">
-                                <span>En färgad text men</span> 
-                                <span style="color: white">dessa ord är vita</span><br>
-                                <span style="color: black">och här kommer lite svart.</span>
+                <div class="card-content">
+                    <div class="background" style="background-color: rgb(${color1})">
+                        <div class="color-text" style="color: rgb(${color2})">
+                            <div class="color-name">
+                                ${color1Name}
+                            </div>
+                            <div class="description">
+                                <div class="example-text">
+                                    <span>En färgad text men</span> 
+                                    <span style="color: white">dessa ord är vita</span><br>
+                                    <span style="color: black">och här kommer lite svart.</span>
+                                </div>
                             </div>
                         </div>
+                        <div class="text-box" style="background-color: rgb(${color2}); color: rgb(${color1})">
+                            ${color2Name}
+                        </div>
                     </div>
-                    <div class="text-box" style="background-color: rgb(${color2}); color: rgb(${color1})">
-                        ${color2Name}
+                    <div class="info">
+                        Kontrast: ${contrast} (${wcagLevel === 'Ej godkänd' ? 'Ingen' : wcagLevel})
                     </div>
-                </div>
-                <div class="info">
-                    Kontrast: ${contrast} (${wcagLevel === 'Ej godkänd' ? 'Ingen' : wcagLevel})
                 </div>
             `;
             

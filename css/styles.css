@@ -154,7 +154,7 @@ body {
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     display: block;
     box-sizing: border-box;
-    min-height: 140px;
+    min-height: 160px;
     width: 100%;
     margin: 0 0 15px 0;
 }
@@ -225,6 +225,7 @@ body {
     z-index: 2;
     width: 100%;
     box-sizing: border-box;
+    margin-top: auto;
 }
 
 /* Stora skärmar (över 1200px) */
@@ -454,6 +455,11 @@ body {
 }
 
 /* Textfärgens namn och brödtext */
+.background .card-content {
+    display: block;
+    width: 100%;
+}
+
 .background .color-text {
     display: flex;
     flex-direction: column;
