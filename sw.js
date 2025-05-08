@@ -1,12 +1,12 @@
 const CACHE_NAME = 'fargkombinationer-v7';
 const urlsToCache = [
-  '/ST_WCAG_fargkombinationer/',
-  '/ST_WCAG_fargkombinationer/index.html',
-  '/ST_WCAG_fargkombinationer/css/styles.css',
-  '/ST_WCAG_fargkombinationer/js/main.js',
-  '/ST_WCAG_fargkombinationer/data/fargkombinationer_WCAG.json',
-  '/ST_WCAG_fargkombinationer/manifest.json',
-  '/ST_WCAG_fargkombinationer/favicon.ico'
+  '/',
+  '/index.html',
+  '/css/styles.css',
+  '/js/main.js',
+  '/data/fargkombinationer_WCAG.json',
+  '/manifest.json',
+  '/favicon.ico'
 ];
 
 // Funktion för att hämta bas-sökväg

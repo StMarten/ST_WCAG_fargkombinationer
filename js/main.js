@@ -64,67 +64,52 @@ function filterCombinations(selectedColor) {
             const card = document.createElement('div');
             card.className = 'card';
             
-            // Spara färgerna i data-attribut för hover-effekt
+            // Skapa kortinnehåll
+            const color1 = combination.color1Farg.join(',');
+            const color2 = combination.color2Farg.join(',');
+            const color1Name = combination.color1;
+            const color2Name = combination.color2;
+            const contrast = combination.kontrast.toFixed(2);
+            const wcagLevel = combination.wcagNiva || 'Ingen';
+            
+            card.innerHTML = `
+                <div class="background" style="background-color: rgb(${color1})">
+                    <div class="color-text" style="color: rgb(${color2})">
+                        <div class="color-name">
+                            ${color1Name}
+                        </div>
+                        <div class="description">
+                            <div class="example-text">
+                                <span>En färgad text men</span> 
+                                <span style="color: white">dessa ord är vita</span><br>
+                                <span style="color: black">och här kommer lite svart.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-box" style="background-color: rgb(${color2}); color: rgb(${color1})">
+                        ${color2Name}
+                    </div>
+                </div>
+                <div class="info">
+                    Kontrast: ${contrast} (${wcagLevel === 'Ej godkänd' ? 'Ingen' : wcagLevel})
+                </div>
+            `;
+            
+            // Spara färginformation i data-attribut
             card.dataset.color1 = JSON.stringify({
-                name: combination.color1,
-                rgb: combination.color1Farg.join(',')
+                name: color1Name,
+                rgb: color1.split(',').map(Number)
             });
             card.dataset.color2 = JSON.stringify({
-                name: combination.color2,
-                rgb: combination.color2Farg.join(',')
+                name: color2Name,
+                rgb: color2.split(',').map(Number)
             });
             
-            // Skapa bakgrunden
-            const background = document.createElement('div');
-            background.className = 'background';
-            
-            // Skapa container för texten
-            const textContainer = document.createElement('div');
-            textContainer.className = 'color-text';
-            
-            // Färgtext
-            const colorName = document.createElement('div');
-            colorName.className = 'color-name';
-            colorName.textContent = combination.color1;
-            
-            // Beskrivningstext
-            const description = document.createElement('div');
-            description.className = 'description';
-            description.innerHTML = '<span>En färgad text men</span> <span style="color: white">dessa ord är vita</span><br><span style="color: black">och här kommer lite svart.</span>';
-            
-            // Lägg till text i containern
-            textContainer.appendChild(colorName);
-            textContainer.appendChild(description);
-            
-            // Lägg till textcontainern i bakgrunden
-            background.appendChild(textContainer);
-            
-            // Textbox
-            const textBox = document.createElement('div');
-            textBox.className = 'text-box';
-            textBox.textContent = combination.color2;
-            background.appendChild(textBox);
-            
-            // Info-text
-            const info = document.createElement('div');
-            info.className = 'info';
-            info.textContent = `Kontrast: ${combination.kontrast.toFixed(2)} (${combination.wcagNiva || 'Ingen'})`;
-            
-            // Sätt initiala färger
-            background.style.backgroundColor = `rgb(${combination.color1Farg.join(',')})`;
-            background.style.color = `rgb(${combination.color2Farg.join(',')})`;
-            textBox.style.backgroundColor = `rgb(${combination.color2Farg.join(',')})`;
-            textBox.style.color = `rgb(${combination.color1Farg.join(',')})`;
-            
-            // Lägg till elementen i kortet
-            card.appendChild(background);
-            card.appendChild(info);
-            
-            // Hover-effekt
+            // Lägg till hover-effekt
             card.addEventListener('mouseenter', function() {
                 const color1 = JSON.parse(this.dataset.color1);
                 const color2 = JSON.parse(this.dataset.color2);
-                
+
                 // Byt färger
                 this.querySelector('.background').style.backgroundColor = `rgb(${color2.rgb})`;
                 this.querySelector('.background').style.color = `rgb(${color1.rgb})`;
@@ -132,12 +117,15 @@ function filterCombinations(selectedColor) {
                 this.querySelector('.text-box').style.backgroundColor = `rgb(${color1.rgb})`;
                 this.querySelector('.text-box').style.color = `rgb(${color2.rgb})`;
                 this.querySelector('.text-box').textContent = color1.name;
+                // Ändra färg på color-text och första span i example-text
+                this.querySelector('.color-text').style.color = `rgb(${color1.rgb})`;
+                this.querySelector('.example-text span:first-child').style.color = `rgb(${color1.rgb})`;
             });
-            
+
             card.addEventListener('mouseleave', function() {
                 const color1 = JSON.parse(this.dataset.color1);
                 const color2 = JSON.parse(this.dataset.color2);
-                
+
                 // Återställ färger
                 this.querySelector('.background').style.backgroundColor = `rgb(${color1.rgb})`;
                 this.querySelector('.background').style.color = `rgb(${color2.rgb})`;
@@ -145,10 +133,13 @@ function filterCombinations(selectedColor) {
                 this.querySelector('.text-box').style.backgroundColor = `rgb(${color2.rgb})`;
                 this.querySelector('.text-box').style.color = `rgb(${color1.rgb})`;
                 this.querySelector('.text-box').textContent = color2.name;
+                // Återställ färg på color-text och första span i example-text
+                this.querySelector('.color-text').style.color = `rgb(${color2.rgb})`;
+                this.querySelector('.example-text span:first-child').style.color = `rgb(${color2.rgb})`;
             });
-            
+
             // Lägg till kort i rätt segment baserat på WCAG-nivå
-            const level = combination.wcagNiva || 'Ingen';
+            const level = wcagLevel === 'Ej godkänd' ? 'Ingen' : wcagLevel;
             wcagLevels[level].cards.appendChild(card);
         }
     });
@@ -200,8 +191,35 @@ fetch(`${getBasePath()}/data/fargkombinationer_WCAG.json`)
             <div class="error-message">
                 <h3>Kunde inte ladda färgdata</h3>
                 <p>${error.message}</p>
-                <p>Kontrollera att filen data/fargkombinationer_WCAG.json finns i rätt mapp.</p>
+                <p>Försöker ladda från alternativ sökväg...</p>
             </div>
         `;
+        
+        // Försök med alternativ sökväg
+        fetch('data/fargkombinationer_WCAG.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(colorData => {
+                console.log('Färgdata laddades från alternativ sökväg:', colorData);
+                allCombinations = colorData.kombinationer;
+                allCombinations.sort((a, b) => b.kontrast - a.kontrast);
+                const uniqueColors = getUniqueColors(allCombinations);
+                updateColorFilter(uniqueColors);
+                filterCombinations('all');
+            })
+            .catch(error => {
+                console.error('Alternativ sökväg misslyckades:', error);
+                container.innerHTML = `
+                    <div class="error-message">
+                        <h3>Kunde inte ladda färgdata</h3>
+                        <p>${error.message}</p>
+                        <p>Försök att ladda sidan igen eller kontrollera att filen data/fargkombinationer_WCAG.json finns i rätt mapp.</p>
+                    </div>
+                `;
+            });
     });
 })();
