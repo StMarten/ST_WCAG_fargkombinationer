@@ -107,45 +107,46 @@ function filterCombinations(selectedColor) {
                 rgb: color2.split(',').map(Number)
             });
             
-            // Lägg till hover/touch effekt
-            const handleColorSwap = function() {
+            // Lägg till toggle-beteende för färgbytet
+            let isSwapped = false;
+
+            const toggleColors = function() {
                 const color1 = JSON.parse(this.dataset.color1);
                 const color2 = JSON.parse(this.dataset.color2);
+                const background = this.querySelector('.background');
+                const colorName = this.querySelector('.color-name');
+                const textBox = this.querySelector('.text-box');
+                const colorText = this.querySelector('.color-text');
+                const exampleTextSpan = this.querySelector('.example-text span:first-child');
 
-                // Byt färger
-                this.querySelector('.background').style.backgroundColor = `rgb(${color2.rgb})`;
-                this.querySelector('.background').style.color = `rgb(${color1.rgb})`;
-                this.querySelector('.color-name').textContent = color2.name;
-                this.querySelector('.text-box').style.backgroundColor = `rgb(${color1.rgb})`;
-                this.querySelector('.text-box').style.color = `rgb(${color2.rgb})`;
-                this.querySelector('.text-box').textContent = color1.name;
-                // Ändra färg på color-text och första span i example-text
-                this.querySelector('.color-text').style.color = `rgb(${color1.rgb})`;
-                this.querySelector('.example-text span:first-child').style.color = `rgb(${color1.rgb})`;
+                if (!isSwapped) {
+                    // Byt färger
+                    background.style.backgroundColor = `rgb(${color2.rgb})`;
+                    background.style.color = `rgb(${color1.rgb})`;
+                    colorName.textContent = color2.name;
+                    textBox.style.backgroundColor = `rgb(${color1.rgb})`;
+                    textBox.style.color = `rgb(${color2.rgb})`;
+                    textBox.textContent = color1.name;
+                    colorText.style.color = `rgb(${color1.rgb})`;
+                    exampleTextSpan.style.color = `rgb(${color1.rgb})`;
+                    isSwapped = true;
+                } else {
+                    // Återställ färger
+                    background.style.backgroundColor = `rgb(${color1.rgb})`;
+                    background.style.color = `rgb(${color2.rgb})`;
+                    colorName.textContent = color1.name;
+                    textBox.style.backgroundColor = `rgb(${color2.rgb})`;
+                    textBox.style.color = `rgb(${color1.rgb})`;
+                    textBox.textContent = color2.name;
+                    colorText.style.color = `rgb(${color2.rgb})`;
+                    exampleTextSpan.style.color = `rgb(${color2.rgb})`;
+                    isSwapped = false;
+                }
             };
 
-            const handleColorReset = function() {
-                const color1 = JSON.parse(this.dataset.color1);
-                const color2 = JSON.parse(this.dataset.color2);
-
-                // Återställ färger
-                this.querySelector('.background').style.backgroundColor = `rgb(${color1.rgb})`;
-                this.querySelector('.background').style.color = `rgb(${color2.rgb})`;
-                this.querySelector('.color-name').textContent = color1.name;
-                this.querySelector('.text-box').style.backgroundColor = `rgb(${color2.rgb})`;
-                this.querySelector('.text-box').style.color = `rgb(${color1.rgb})`;
-                this.querySelector('.text-box').textContent = color2.name;
-                // Återställ färg på color-text och första span i example-text
-                this.querySelector('.color-text').style.color = `rgb(${color2.rgb})`;
-                this.querySelector('.example-text span:first-child').style.color = `rgb(${color2.rgb})`;
-            };
-
-            // Lägg till event listeners för både dator och mobil
-            card.addEventListener('mouseenter', handleColorSwap);
-            card.addEventListener('mouseleave', handleColorReset);
-            card.addEventListener('touchstart', handleColorSwap);
-            card.addEventListener('touchend', handleColorReset);
-            card.addEventListener('touchcancel', handleColorReset);
+            // Lägg till klick-event listener
+            card.addEventListener('click', toggleColors);
+            card.addEventListener('touchstart', toggleColors);
 
             // Lägg till kort i rätt segment baserat på WCAG-nivå
             const level = wcagLevel === 'Ej godkänd' ? 'Ingen' : wcagLevel;
