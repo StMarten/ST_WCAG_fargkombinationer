@@ -280,9 +280,16 @@ function filterCombinations(selectedColor) {
                 }
             };
 
-            // Lägg till klick-event listener
-            card.addEventListener('click', toggleColors);
-            card.addEventListener('touchstart', toggleColors);
+            // Hantera både klick och touch-händelser på ett bättre sätt
+            const handleInteraction = (e) => {
+                // Förhindra standardbeteendet för touch-händelser
+                e.preventDefault();
+                toggleColors.call(card);
+            };
+
+            // Lägg till både klick- och touch-händelser
+            card.addEventListener('click', handleInteraction);
+            card.addEventListener('touchstart', handleInteraction);
 
             // Lägg till kort i rätt segment baserat på WCAG-nivå
             const level = wcagLevel === 'Ej godkänd' ? 'Ingen' : wcagLevel;
