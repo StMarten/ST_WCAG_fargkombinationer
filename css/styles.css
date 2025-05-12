@@ -1,9 +1,11 @@
 body {
     font-family: 'Bosis', sans-serif;
     margin: 0;
-    padding: 10px;
+    padding: 10px 20px;
     background-color: #cccccc;
     min-width: 320px; /* Förhindrar att sidan blir för smal */
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 /* Grundläggande responsiva enheter */
@@ -13,9 +15,24 @@ body {
 }
 
 .filter-container {
-    margin: 15px 0;
-    text-align: center;
-    padding: 0 10px;
+    margin: 15px 0 25px;
+    padding: 0 0 25px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+
+.filter-container::after {
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    width: calc(20%);
+    height: 1px;
+    background-color: black;
 }
 
 .filter-container label {
@@ -23,27 +40,25 @@ body {
     font-size: 1.5em;
     font-weight: 700;
     margin-right: 8px;
-    display: block;
-    margin-bottom: 8px;
+    display: inline-block;
 }
 
 /* Responsivt filter */
 @media (min-width: 600px) {
     .filter-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 25px;
     }
     
     .filter-container label {
         font-size: 1.8em;
-        margin-bottom: 0;
-        display: inline;
+        margin-bottom: 10px;
     }
 }
 
 .filter-container select {
-    padding: 10px 20px;
+    padding: 10px 30px 10px 10px;
     font-size: 1em;
     font-family: 'Roboto Slab', Georgia, serif;
     font-weight: 700;
@@ -51,7 +66,7 @@ body {
     background-color: white;
     border: none;
     border-radius: 0;
-    margin-left: 10px;
+    margin: 5px 0 0 0;
     cursor: pointer;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -60,17 +75,26 @@ body {
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 10px auto;
-    padding-right: 30px;
+    width: 100%;
+    max-width: 300px;
+    text-align: left;
+    text-align-last: left;
+    display: block;
+}
+
+/* Ensure dropdown options are left-aligned */
+.filter-container select option {
+    text-align: left;
 }
 
 /* Lägg till dina stilar här */
 
 .error-message {
     background-color: #ffebee;
-    border-left: 4px solid #f44336;
+    border-left: 1px solid #f44336;
     padding: 20px;
     margin: 20px 0;
-    border-radius: 4px;
+    border-radius: 1px;
 }
 
 .error-message h3 {
@@ -119,13 +143,19 @@ body {
 }
 
 .container {
-    padding: 20px;
-    max-width: 1400px;
-    margin: 0 auto;
+    padding: 20px 0;
+    max-width: 100%;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .segment {
     margin-bottom: 20px;
+    position: relative;
+    padding-left: 15px;
+    border-left: 1px solid transparent;
+    margin-left: 10px;
 }
 
 .segment h2 {
@@ -151,7 +181,6 @@ body {
     position: relative;
     overflow: hidden;
     border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     display: block;
     box-sizing: border-box;
     min-height: 160px;
@@ -418,7 +447,7 @@ body {
     .filter-container select {
         width: 100%;
         max-width: 300px;
-        margin: 0 auto;
+        margin: 0;
         display: block;
     }
 }
@@ -504,4 +533,37 @@ body {
     text-align: center;
     font-size: 0.9em;
     color: #666;
+}
+
+/* Segment styles with vertical lines */
+.segment {
+    border-left: 1px solid transparent; /* Default border that will be overridden */
+    padding-left: 16px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+/* First segment - AAA - Green */
+.segment:nth-child(1) {
+    border-left-color: #3ea827;
+}
+
+/* Second segment - AA - Yellow */
+.segment:nth-child(2) {
+    border-left-color: #fec900;
+}
+
+/* Third segment - A - Orange */
+.segment:nth-child(3) {
+    border-left-color: #ff5000;
+}
+
+/* Fourth segment - Ingen - Red */
+.segment:nth-child(4) {
+    border-left-color: #dc001b;
+}
+
+/* Keep heading text black */
+.segment h2 {
+    color: #000000;
 }
