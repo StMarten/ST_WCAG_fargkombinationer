@@ -49,10 +49,17 @@
 </head>
 <body>
     <div class="filter-container">
-        <label for="colorFilter">Visa kombinationer med:</label>
-        <select id="colorFilter" aria-label="Filtrera färger">
-            <option value="all">Alla färger</option>
-        </select>
+        <label for="colorFilter">Filtrera på färg:</label>
+        <div class="custom-select">
+            <div class="select-selected">
+                <span class="color-preview"></span>
+                <span class="select-text">Alla färger</span>
+                <span class="select-arrow">▼</span>
+            </div>
+            <div class="select-items select-hide">
+                <!-- Alternativen kommer att fyllas med JavaScript -->
+            </div>
+        </div>
     </div>
     <div class="container" id="colorCombinations"></div>
     <script src="./js/main.js"></script>

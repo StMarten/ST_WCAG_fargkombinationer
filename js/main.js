@@ -1,5 +1,27 @@
 (function() {
     let allCombinations = []; // Privat variabel i IIFE
+    
+        // Huvudfunktion som körs när sidan laddas
+    function init() {
+        // Kontrollera att nödvändiga element finns
+        const filterContainer = document.querySelector('.filter-container');
+        const colorCombinations = document.getElementById('colorCombinations');
+        
+        if (!filterContainer || !colorCombinations) {
+            console.error('Kunde inte hitta nödvändiga element på sidan');
+            return;
+        }
+        
+        loadColorData();
+    }
+    
+    // Starta initieringen när DOM:en är laddad
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        // DOM är redan laddad
+        init();
+    }
 
 // Hämta alla unika färger från kombinationerna
 function getUniqueColors(combinations) {
@@ -13,31 +35,145 @@ function getUniqueColors(combinations) {
 
 // Uppdatera färgfilter-dropdown
 function updateColorFilter(colors) {
-    const filter = document.getElementById('colorFilter');
-    // Rensa befintliga alternativ förutom det första
-    while (filter.options.length > 1) {
-        filter.remove(1);
-    }
+    console.log('Uppdaterar färgfilter...');
+    
+    // Försök hitta elementen flera gånger med fördröjning om de inte finns direkt
+    let retryCount = 0;
+    const maxRetries = 5;
+    const retryDelay = 100; // ms
+    
+    const tryUpdate = () => {
+        const selectContainer = document.querySelector('.custom-select');
+        
+        if (!selectContainer) {
+            if (retryCount < maxRetries) {
+                retryCount++;
+                console.log(`Försöker hitta .custom-select igen (försök ${retryCount}/${maxRetries})...`);
+                setTimeout(tryUpdate, retryDelay);
+                return;
+            }
+            console.error('Kunde inte hitta element med klassen "custom-select" efter flera försök');
+            return;
+        }
+        
+        const selectSelected = selectContainer.querySelector('.select-selected');
+        const selectItems = selectContainer.querySelector('.select-items');
+        
+        if (!selectSelected || !selectItems) {
+            if (retryCount < maxRetries) {
+                retryCount++;
+                console.log(`Försöker hitta dropdown-element igen (försök ${retryCount}/${maxRetries})...`);
+                setTimeout(tryUpdate, retryDelay);
+                return;
+            }
+            console.error('Kunde inte hitta nödvändiga element i dropdown-menyn efter flera försök');
+            return;
+        }
+        
+        // Fortsätt med resten av funktionen om allt är OK
+        continueUpdate(selectContainer, selectSelected, selectItems, colors);
+    };
+    
+    // Starta det första försöket
+    tryUpdate();
+}
+
+// Hjälpfunktion för att fortsätta med uppdateringen när elementen är klara
+function continueUpdate(selectContainer, selectSelected, selectItems, colors) {
+    
+    // Rensa befintliga alternativ
+    selectItems.innerHTML = '';
+    
+    // Skapa en karta över färgnamn till RGB-värden
+    const colorMap = {};
+    
+    // Hämta alla unika färger med deras RGB-värden
+    allCombinations.forEach(comb => {
+        if (!colorMap[comb.color1]) {
+            colorMap[comb.color1] = comb.color1Farg;
+        }
+        if (!colorMap[comb.color2]) {
+            colorMap[comb.color2] = comb.color2Farg;
+        }
+    });
+    
+    // Sortera färgerna alfabetiskt
+    const sortedColors = Object.keys(colorMap).sort();
+    
+    // Skapa "Alla färger"-alternativet
+    const allColorsItem = document.createElement('div');
+    allColorsItem.className = 'select-item all-colors';
+    allColorsItem.innerHTML = `
+        <span class="color-preview"></span>
+        <span>Alla färger</span>
+    `;
+    allColorsItem.addEventListener('click', function() {
+        selectSelected.querySelector('.select-text').textContent = 'Alla färger';
+        const preview = selectSelected.querySelector('.color-preview');
+        preview.className = 'color-preview';
+        preview.style.background = 'linear-gradient(45deg, #ff0000, #ff9900, #ffff00, #33cc33, #3399ff, #9933ff, #ff33cc, #ff0000)';
+        preview.style.backgroundSize = '400% 400%';
+        preview.style.animation = 'rainbow 3s ease infinite';
+        selectItems.classList.add('select-hide');
+        selectSelected.querySelector('.select-arrow').classList.remove('open');
+        filterCombinations('all');
+    });
+    selectItems.appendChild(allColorsItem);
     
     // Lägg till färgerna i dropdown-menyn
-    colors.forEach(color => {
-        const option = document.createElement('option');
-        option.value = color;
-        option.textContent = color;
-        filter.appendChild(option);
+    sortedColors.forEach(colorName => {
+        const rgb = colorMap[colorName];
+        const colorValue = `rgb(${rgb.join(',')})`;
+        
+        const item = document.createElement('div');
+        item.className = 'select-item';
+        item.innerHTML = `
+            <span class="color-preview" style="background-color: ${colorValue}"></span>
+            <span>${colorName}</span>
+        `;
+        
+        item.addEventListener('click', function() {
+            selectSelected.querySelector('.select-text').textContent = colorName;
+            const preview = selectSelected.querySelector('.color-preview');
+            preview.style.background = colorValue;
+            preview.style.backgroundSize = '';
+            preview.style.animation = '';
+            selectItems.classList.add('select-hide');
+            selectSelected.querySelector('.select-arrow').classList.remove('open');
+            filterCombinations(colorName);
+        });
+        
+        selectItems.appendChild(item);
     });
-
-    // Lägg till event listener för filtrering
-    filter.addEventListener('change', function() {
-        const selectedColor = this.value;
-        filterCombinations(selectedColor);
+    
+    // Hantera klick på den valda rutan
+    selectSelected.addEventListener('click', function(e) {
+        e.stopPropagation();
+        selectItems.classList.toggle('select-hide');
+        selectSelected.querySelector('.select-arrow').classList.toggle('open');
+    });
+    
+    // Stäng dropdown när man klickar någon annanstans
+    document.addEventListener('click', function(e) {
+        if (!selectContainer.contains(e.target)) {
+            selectItems.classList.add('select-hide');
+            selectSelected.querySelector('.select-arrow').classList.remove('open');
+        }
     });
 }
 
+// Funktionen behövs inte längre eftersom vi hanterar färgerna direkt i updateColorFilter
+
 // Filtrera och visa kombinationer baserat på vald färg
 function filterCombinations(selectedColor) {
-    // Rensa containern
+    // Hitta containern
     const container = document.getElementById('colorCombinations');
+    if (!container) {
+        console.error('Kunde inte hitta element med id:et "colorCombinations"');
+        return;
+    }
+    
+    // Rensa containern
     container.innerHTML = '';
 
     // Skapa segment för olika WCAG-nivåer
@@ -169,67 +305,79 @@ function getBasePath() {
     return window.location.pathname.split('/').slice(0, -1).join('/');
 }
 
+// Huvudfunktion som körs när sidan laddas
+function init() {
+    // Kontrollera om DOM:en är redo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadColorData);
+    } else {
+        loadColorData();
+    }
+}
+
 // Läs in data från JSON-fil
-console.log('Försöker hämta färgdata...');
-fetch(`${getBasePath()}/data/fargkombinationer_WCAG.json`)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(colorData => {
-        console.log('Färgdata laddades:', colorData);
-        // Spara alla kombinationer globalt
-        allCombinations = colorData.kombinationer;
-        
-        // Sortera kombinationer efter kontrastvärde (högst först)
-        allCombinations.sort((a, b) => b.kontrast - a.kontrast);
+function loadColorData() {
+    console.log('Försöker hämta färgdata...');
+    fetch(`${getBasePath()}/data/fargkombinationer_WCAG.json`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(colorData => {
+            console.log('Färgdata laddades:', colorData);
+            // Spara alla kombinationer globalt
+            allCombinations = colorData.kombinationer;
+            
+            // Sortera kombinationer efter kontrastvärde (högst först)
+            allCombinations.sort((a, b) => b.kontrast - a.kontrast);
 
-        // Fyll i färgfilter-dropdown
-        const uniqueColors = getUniqueColors(allCombinations);
-        updateColorFilter(uniqueColors);
+            // Fyll i färgfilter-dropdown
+            const uniqueColors = getUniqueColors(allCombinations);
+            updateColorFilter(uniqueColors);
 
-        // Visa alla kombinationer initialt
-        filterCombinations('all');
-    })
-    .catch(error => {
-        console.error('Ett fel uppstod vid inläsning av färgdata:', error);
-        // Visa felmeddelande för användaren
-        const container = document.getElementById('colorCombinations');
-        container.innerHTML = `
-            <div class="error-message">
-                <h3>Kunde inte ladda färgdata</h3>
-                <p>${error.message}</p>
-                <p>Försöker ladda från alternativ sökväg...</p>
-            </div>
-        `;
-        
-        // Försök med alternativ sökväg
-        fetch('data/fargkombinationer_WCAG.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(colorData => {
-                console.log('Färgdata laddades från alternativ sökväg:', colorData);
-                allCombinations = colorData.kombinationer;
-                allCombinations.sort((a, b) => b.kontrast - a.kontrast);
-                const uniqueColors = getUniqueColors(allCombinations);
-                updateColorFilter(uniqueColors);
-                filterCombinations('all');
-            })
-            .catch(error => {
-                console.error('Alternativ sökväg misslyckades:', error);
-                container.innerHTML = `
-                    <div class="error-message">
-                        <h3>Kunde inte ladda färgdata</h3>
-                        <p>${error.message}</p>
-                        <p>Försök att ladda sidan igen eller kontrollera att filen data/fargkombinationer_WCAG.json finns i rätt mapp.</p>
-                    </div>
-                `;
-            });
-    });
+            // Visa alla kombinationer initialt
+            filterCombinations('all');
+        })
+        .catch(error => {
+            console.error('Ett fel uppstod vid inläsning av färgdata:', error);
+            // Visa felmeddelande för användaren
+            const container = document.getElementById('colorCombinations');
+            container.innerHTML = `
+                <div class="error-message">
+                    <h3>Kunde inte ladda färgdata</h3>
+                    <p>${error.message}</p>
+                    <p>Försöker ladda från alternativ sökväg...</p>
+                </div>
+            `;
+            
+            // Försök med alternativ sökväg
+            fetch('data/fargkombinationer_WCAG.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(colorData => {
+                    console.log('Färgdata laddades från alternativ sökväg:', colorData);
+                    allCombinations = colorData.kombinationer;
+                    allCombinations.sort((a, b) => b.kontrast - a.kontrast);
+                    const uniqueColors = getUniqueColors(allCombinations);
+                    updateColorFilter(uniqueColors);
+                    filterCombinations('all');
+                })
+                .catch(error => {
+                    console.error('Alternativ sökväg misslyckades:', error);
+                    container.innerHTML = `
+                        <div class="error-message">
+                            <h3>Kunde inte ladda färgdata</h3>
+                            <p>${error.message}</p>
+                            <p>Försök att ladda sidan igen eller kontrollera att filen data/fargkombinationer_WCAG.json finns i rätt mapp.</p>
+                        </div>
+                    `;
+                });
+        });
+    }
 })();

@@ -553,9 +553,9 @@ body {
     border-left-color: #fec900;
 }
 
-/* Third segment - A - Orange */
+/* Third segment - A - Purple */
 .segment:nth-child(3) {
-    border-left-color: #ff5000;
+    border-left-color: #610082;
 }
 
 /* Fourth segment - Ingen - Red */
@@ -566,4 +566,171 @@ body {
 /* Keep heading text black */
 .segment h2 {
     color: #000000;
+}
+
+/* Stilar för anpassad dropdown */
+.custom-select {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 8px;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.select-selected {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 40px;
+    transition: border-color 0.2s;
+}
+
+.select-selected:hover {
+    border-color: #999;
+}
+
+.select-selected .color-preview {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    margin-right: 10px;
+    flex-shrink: 0;
+    background: linear-gradient(45deg, #ff0000, #ff9900, #ffff00, #33cc33, #3399ff, #9933ff, #ff33cc, #ff0000);
+    background-size: 400% 400%;
+    animation: rainbow 3s ease infinite;
+}
+
+.select-selected .select-text {
+    flex-grow: 1;
+    color: #333;
+}
+
+.select-arrow {
+    margin-left: 10px;
+    transition: transform 0.2s;
+    color: #666;
+    font-size: 0.8em;
+}
+
+.select-arrow.open {
+    transform: rotate(180deg);
+}
+
+.select-items {
+    position: absolute;
+    background-color: white;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    max-height: 300px;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-top: -1px;
+}
+
+.select-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s;
+    color: #333;
+}
+
+.select-item:hover {
+    background-color: #f5f5f5;
+}
+
+.select-item .color-preview {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.select-hide {
+    display: none;
+}
+
+@keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Stilar för färgrutor i dropdown */
+#colorFilter {
+    padding-left: 40px; /* Gör plats för färgrutan */
+    position: relative;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    padding-right: 30px;
+    min-height: 40px; /* Säkerställ tillräcklig höjd */
+    line-height: 40px; /* Centrera texten vertikalt */
+}
+
+/* Anpassa färgen för den valda färgen i den stängda menyn */
+#colorFilter::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: var(--selected-color, #cccccc);
+    border: 1px solid #999;
+    border-radius: 3px;
+    pointer-events: none;
+}
+
+/* Stilar för den nedrullade menyn */
+#colorFilter option {
+    padding: 8px 10px 8px 40px;
+    position: relative;
+    background-color: white;
+}
+
+/* Skapa en pseudo-element för färgrutan i varje alternativ */
+#colorFilter option::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #cccccc; /* Standardfärg om något går fel */
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+/* Styla den nedrullade menyn */
+#colorFilter option:checked {
+    background-color: #f5f5f5;
+}
+
+/* Hover-effekt för alternativ */
+#colorFilter option:hover {
+    background-color: #e9e9e9 !important;
 }
